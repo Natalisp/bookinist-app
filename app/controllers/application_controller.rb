@@ -12,13 +12,34 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do 
-    binding.pry
-    erb :index
+     if user_signed_in?
+      erb :'users/profile'
+    else
+      erb :'users/auth'
+    end
   end
 
-  get '/signup' do 
-    erb :'/users/create_user'
+   helpers do
+    def current_user
+      @_current_user ||= User.find_by(id: session[:id])
+    end
+
+    def user_signed_in?
+      !!current_user
+    end
+
+    def login(user)
+      session[:id] = user.id
+    end
+
+    def logout
+      session[:id] = nil
+    end
   end
 
+  not_found do
+    status 404
+    erb :oops
+  end
 
 end
