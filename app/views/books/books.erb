@@ -1,32 +1,82 @@
-<a href="/logout">Log Out</a>
+<form id="logout" action='/logout' method="get">
+<button type="submit">logout</button>
+</form>
+<h2 style="text-align:center; font-family:'HelveticaNeue-Light'">Hello <%= @user.name %></h2>
+<h4 style="text-align:center; font-family:'HelveticaNeue-Light'">WANT TO READ</h4>
 
-<h4 style="text-align:center">TO READ</h4>
+
+<table class="book_list">
+<tbody>
 
 <% @books.each.with_index(1) do |book, index| %>
-  <%= index %>.
-  <%= book.name %>
-  <br>
+<% if book.have_read == true %>
+  <tr><td> <h4>  <%= index %>.</h4></td>
+  <td><h4 style= "text-decoration: line-through;"> <%= book.name %></h4></td></tr>
+  <% elsif book.have_read == false%></tr>
+  <tr><td><h4><%= index %>.</h4></td>
+  <td><h4> <%= book.name%> </h4></td></tr>
+  <%end%>
+<br>
+
+<!-- mark as READ -->
+<tr><td>
+<form action="/books/<%= book.id%>/have_read" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+<% if book.have_read != true %>
+<input type="submit" onclick="this.form.submit();" value="mark as read">
+<% else %>
+<input type="submit" onclick="this.form.submit();" value="mark as unread">
+<% end %>
+</form>
+</td></tr>
+
 
 <!-- EDIT button -->
+<tr><td>
 <form  action="/books/<%= book.id%>/edit" method="POST">
 <input type="hidden" name="_method" value="PATCH">
 <input type ="text" name="name">
 <input type="submit" value="Edit">
 </form>
-
+</td></tr>
 
 <!-- DELETE button -->
-
-
+<tr><td>
 <form action="/books/<%= book.id%>" method="POST">
 <input type="hidden" name="_method" value="DELETE">
-<input type="submit" value="Delete"></form>
-
+<input type="submit" value="Delete">
+</form>
+</td></tr>
 
 <%end%>
+</tbody>
 
-<h4>Add New Book</h4>
-<form action="/books" method="POST">
-<input type="text" name="name">
-<input type="submit" value="Add">
-</form>
+<tfoot>
+ <tr><td>
+  <h4 id = book-form >Add New Book</h4></td><td>
+  <form action="/books" method="POST">
+  <input type="text" name="name">
+  <button id="add" type="submit"><i class='icon ion-plus-round'> Add</i></button>
+  </form>
+ </td></tr>
+</tfoot>
+</table>
+
+
+
+
+<table class="sortable">
+<thead>
+  <tr><th>Person</th><th>Monthly pay</th></tr>
+</thead>
+<tbody>
+  <tr><td>Jan Molby</td><td>£12,000</td></tr>
+  <tr><td>Steve Nicol</td><td>£8,500</td></tr>
+  <tr><td>Steve McMahon</td><td>£9,200</td></tr>
+  <tr><td>John Barnes</td><td>£15,300</td></tr>
+</tbody>
+<tfoot>
+  <tr><td>TOTAL</td><td>£45,000</td></tr>
+</tfoot>
+</table>
+

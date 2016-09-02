@@ -3,6 +3,7 @@ require 'pry'
 class UsersController < ApplicationController
 
   get '/signup' do
+
     if !session[:id]
       erb :'/users/create_user'
     else 
