@@ -1,6 +1,8 @@
+require 'pry'
+
 class UsersController < ApplicationController
 
-  get '/signup' do 
+  get '/signup' do
     if !session[:id]
       erb :'/users/create_user'
     else 
@@ -35,6 +37,11 @@ class UsersController < ApplicationController
     else
       redirect '/signup'
     end
+  end
+
+  get '/logout' do
+    session[:id] = nil
+    erb :'/logout'
   end
 
 

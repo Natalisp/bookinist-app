@@ -16,21 +16,21 @@ class ApplicationController < Sinatra::Base
   end
 
    helpers do
-    def current_user
-      @current_user ||= User.find_by(id: session[:id])
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect "/login?error=You have to be logged in to do that"
+      end
     end
 
-    def user_signed_in?
-      !!current_user
+    def current_user
+      User.find(session[:id])
     end
 
     def logged_in?
       !!session[:id]
     end
 
-    def logout
-      session[:id] = nil
-    end
   end
 
   not_found do

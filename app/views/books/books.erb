@@ -1,1 +1,30 @@
-list of saved books
+<a href="/logout">Log Out</a>
+
+<h4 style="text-align:center">TO READ</h4>
+
+<% @books.each.with_index(1) do |book, index| %>
+  <%= index %>.
+  <%= book.name %>
+  <br>
+
+<!-- EDIT button -->
+<form  action="/books/<%= book.id %>/edit" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+<input type ="text" name="name">
+<input type="submit" value="Edit">
+</form>
+
+
+<!-- DELETE button -->
+<form action="/books" method="POST">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete"></form>
+
+
+<%end%>
+
+<h4>Add New Book</h4>
+<form action="/books" method="POST">
+<input type="text" name="name">
+<input type="submit" value="Add">
+</form>
