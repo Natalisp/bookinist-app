@@ -33,16 +33,11 @@ class BooksController < ApplicationController
     end
   end
 
-  # get '/books/:id/edit' do 
-  #   if !session[:id].nil? && !params[:name].empty?
-  #     @book = current_user.books.find_by_id(params[:id])
-  #     erb :'/books/edit_book'
-  #   else
-  #     redirect '/login'
-  #   end
-  # end
+  get '/books/:id/edit' do 
+      redirect to '/books'
+  end
 
-  post '/books/:id/edit' do 
+  patch '/books/:id/edit' do 
       @book = Book.find(params[:id])
       if !params[:name].empty? && @book.user_id == current_user.id
       @book.update(name: params[:name])
@@ -52,14 +47,9 @@ class BooksController < ApplicationController
     end
   end
 
-  post '/books/:id/delete' do 
-    @book = Book.find(params[:id])
-    if logged_in? && @book.user_id == session[:id]
-       book.delete
+  delete '/books/:id' do 
+    Book.find(params[:id]).delete
        redirect '/books'
-    else
-       redirect '/login'
-    end
   end
 
 
