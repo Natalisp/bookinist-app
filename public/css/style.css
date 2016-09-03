@@ -1,3 +1,5 @@
+
+
 /*link style*/
 a:link, a:visited, a:hover, a:active {
     background-color: none;
@@ -14,8 +16,16 @@ a:link, a:visited, a:hover, a:active {
     left: 80%;
 }
 
-
 /*BUTTONS*/
+
+.btn {
+  background: none;
+}
+
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+
 .btn-success {
  transition: transform 2s;
  width: 120px;
@@ -214,4 +224,16 @@ form#signup-norm input[type=submit] {
   font-size: 20px;
   line-height: 40px;
   border-radius: 3px;
+}
+
+/*FOOTER*/
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #fff;
+  text-align: center;
+  color: #f1cf63;
 }
