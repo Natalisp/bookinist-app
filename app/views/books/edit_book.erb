@@ -1,7 +1,0 @@
-<h2> <%= @book.name%> </h2>
-<h3>Enter new name</h3>
-<form method="POST" action="/books/<%= @book.id%>">
-<input type="hidden" name="_method" value="PATCH">
-<input type ="text" name="name">
-<input type="submit" value="Edit">
-</form>

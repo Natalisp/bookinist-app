@@ -1,4 +1,21 @@
+/*link style*/
+a:link, a:visited, a:hover, a:active {
+    background-color: none;
+    color: #f1cf63;
+    font-size: 20px;
+    border: 2px solid #f1cf63;
+    padding: 14px 25px;
+    margin: 10px auto;
+    text-align: center;
+    display: inline-block;
+    position:relative;
+    transition: .5s ease;
+    top: 10%;
+    left: 80%;
+}
 
+
+/*BUTTONS*/
 .btn-success {
  transition: transform 2s;
  width: 120px;
@@ -27,7 +44,7 @@
   transition: width 0.5s;
 }
 .btn-edit:hover {
-  width: 100px;
+  width: 300px;
 }
 .btn-edit:focus, .btn-success:focus, .btn-success:active:focus, .btn-add:hover, .btn-sort:hover {
   border-color: none;

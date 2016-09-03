@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session[:id] = nil
-    erb :'/logout'
+   erb :'/logout'
   end
 
 

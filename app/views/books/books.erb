@@ -23,7 +23,7 @@
     <h4 class="name-text" <%= "style='text-decoration: line-through;'" if book.have_read %>> <%= index %>. <%= book.name.capitalize %> </h4>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
     <!-- EDIT button -->
     <form  action="/books/<%= book.id%>/edit" method="POST">
     <input type="hidden" name="_method" value="PATCH">
@@ -49,25 +49,14 @@
   </div>
 </div>
 
-
-
-
 <%end%>
 
 <br>
 <br>
 <br>
 
-
-
   <form action="/books" method="POST">
   <input type="text" name="name" class="btn btn-add" placeholder="Add New Book">
-  </form>
-
-
-  <form action="/books" method="POST">
-  <input type="text" name="name" class="btn btn-add" placeholder="Add New Book">
-  
   </form>
 
 </div>
