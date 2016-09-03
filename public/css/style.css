@@ -1,0 +1,200 @@
+
+.btn-success {
+ transition: transform 2s;
+ width: 120px;
+ height: 35px;
+ border: none;
+ color: #000;
+ background: none;
+}
+.btn-success:hover, .btn-sample:active, .btn-success:active:focus, .btn-add:active, .btn-add:active:focus {
+  color: #000;
+  transform: rotateX(360deg);
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.btn-success p {
+  color: #000;
+}
+
+.btn-edit {
+  margin: 2px auto;
+  display: block;
+  padding: 3px;
+  font-size: 16px;
+  width: 50px;
+  transition: width 0.5s;
+}
+.btn-edit:hover {
+  width: 100px;
+}
+.btn-edit:focus, .btn-success:focus, .btn-success:active:focus, .btn-add:hover, .btn-sort:hover {
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-add {
+  margin: 2px auto;
+  display: block;
+  padding: 3px;
+  font-size: 16px;
+  width: 150px;
+  transition: width 0.5s;
+  float: left;
+  border-bottom: 4px solid #ed749f;
+}
+.btn-add:hover {
+  width: 200px;
+}
+
+.btn-logout {
+  float: right;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-sort {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #ed749f;
+} 
+
+.glyphicon, .btn-sm {
+  border: none;
+}
+
+/*FONTS*/
+
+.hello-text, .hello-text-lg {
+  font-family: Permanent Marker, serif;
+  color: #f1cf63;
+  font-size: 5em;
+  line-height: 1em;
+  text-align: center;
+}
+
+.hello-text-lg {
+   padding: 280px 0 0 ;
+}
+
+.hello-text-sm {
+  font-family: 'Lato', serif;
+  color: #000;
+  font-size: 2em;
+  line-height: 1em;
+  text-align: center;
+}
+
+.name-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+/*SIGNIN/SIGN UP*/
+form#signup, form#login {
+  width: 300px;
+  height: 150px;
+  float: right;
+  border-radius: 5px;
+  position: absolute;
+  transition: top 0.7s;
+  text-align: center;
+}
+
+form#signup .input-area,
+form#login .input-area {
+  padding: 20px 20px 20px 20px;
+  background: none;
+}
+
+form#signup {
+  right: 220px;
+  top: -182px;
+}
+
+form#login {
+  right: 10px;
+  top: -120px;
+}
+
+form#login input[type=submit]{
+   margin: 20px 0 0 0;
+}
+
+form#signup input[type=submit],
+form#login input[type=submit] {
+  width: 80px;
+  height: 40px;
+  float: center;
+  position: relative;
+  right: 10px;
+  background: none;
+  color: #f1cf63;
+  font-size: 20px;
+  line-height: 40px;
+  border-radius: 3px;
+  transition: top 5s;
+}
+
+form#signup:hover, form#login:hover {
+   top: 0px;
+   z-index: 3;
+}
+
+form#signup input, form#login input {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 0 5px;
+  margin: 0 0 20px;
+  border: none;
+  border-bottom: 3px solid #ddd;
+}
+
+
+
+
+
+
+
+
+.form-group { 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -150px 0 0 -150px;
+  width:300px;
+  height:300px;
+}
+
+.form-group h3 { color: #f1cf63; text-align:center;}
+
+form#signup-norm input { 
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 3px;
+  padding: 0 5px;
+  margin: 0 0 20px;
+  border: none;
+  border-bottom: 3px solid #ddd; 
+}
+
+form#signup-norm input[type=submit] {
+  width: 80px;
+  height: 40px;
+  float: center;
+  position: relative;
+  background: none;
+  color: #f1cf63;
+  font-size: 20px;
+  line-height: 40px;
+  border-radius: 3px;
+}

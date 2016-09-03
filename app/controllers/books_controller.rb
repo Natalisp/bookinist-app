@@ -5,8 +5,13 @@ class BooksController < ApplicationController
       redirect '/login'
     else
       @user = current_user
-      @books = @user.books
-      # @books_sorted = @books.sort_by { |name, have_read| have_read }
+      if params[:sort_books] && params[:sort_books] == 'true'
+        @books = @user.books.order(:have_read)
+        @books_sorted = true
+      else 
+        @books_sorted = false
+        @books = @user.books
+      end
       erb :'/books/books'
     end
   end

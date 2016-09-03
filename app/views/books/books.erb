@@ -1,82 +1,75 @@
-<form id="logout" action='/logout' method="get">
-<button type="submit">logout</button>
+<div class="container">
+
+<% if @books.all.count == 0 %>
+<h4 style="font-family:'HelveticaNeue-Light'">Ooh, so empty here...</h4>
+<h4 style="font-family:'HelveticaNeue-Light'">start adding books now</h4>
+<%else%>
+<h4 style="font-family:'HelveticaNeue-Light'">Just reminding what you wanted to read.</h4>
+<%end%>
+<br>
+<br>
+<br>
+<!-- SORT button -->
+<% if @books.all.count > 2 %>
+<form action='/books' method="get">
+  <input type="hidden" name="sort_books" value="<%= @books_sorted == true ? 'false' : 'true' %>">
+  <button  class="btn btn-sort" type="submit">unread first</button>
 </form>
-<h2 style="text-align:center; font-family:'HelveticaNeue-Light'">Hello <%= @user.name %></h2>
-<h4 style="text-align:center; font-family:'HelveticaNeue-Light'">WANT TO READ</h4>
-
-
-<table class="book_list">
-<tbody>
+<%end%>
 
 <% @books.each.with_index(1) do |book, index| %>
-<% if book.have_read == true %>
-  <tr><td> <h4>  <%= index %>.</h4></td>
-  <td><h4 style= "text-decoration: line-through;"> <%= book.name %></h4></td></tr>
-  <% elsif book.have_read == false%></tr>
-  <tr><td><h4><%= index %>.</h4></td>
-  <td><h4> <%= book.name%> </h4></td></tr>
-  <%end%>
-<br>
+<div class="row">
+  <div class="col-sm-5">
+    <h4 class="name-text" <%= "style='text-decoration: line-through;'" if book.have_read %>> <%= index %>. <%= book.name.capitalize %> </h4>
+  </div>
 
-<!-- mark as READ -->
-<tr><td>
-<form action="/books/<%= book.id%>/have_read" method="POST">
-<input type="hidden" name="_method" value="PATCH">
-<% if book.have_read != true %>
-<input type="submit" onclick="this.form.submit();" value="mark as read">
-<% else %>
-<input type="submit" onclick="this.form.submit();" value="mark as unread">
-<% end %>
-</form>
-</td></tr>
+  <div class="col-sm-3">
+    <!-- EDIT button -->
+    <form  action="/books/<%= book.id%>/edit" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <input class="btn btn-edit" type ="text" name="name" placeholder="edit">
+    </form>
+  </div>
+
+  <div class="col-sm-2">
+    <!-- mark as READ -->
+    <form action="/books/<%= book.id%>/have_read" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <input class='btn btn-success'  type="submit" onclick="this.form.submit();" value="mark as <%= 'un' if book.have_read %>read">
+    </form>
+  </div>
+  
+  <div class="col-sm-1">
+    <!-- DELETE button -->
+    <form action="/books/<%= book.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-trash"></span> 
+    </form>
+  </div>
+</div>
 
 
-<!-- EDIT button -->
-<tr><td>
-<form  action="/books/<%= book.id%>/edit" method="POST">
-<input type="hidden" name="_method" value="PATCH">
-<input type ="text" name="name">
-<input type="submit" value="Edit">
-</form>
-</td></tr>
 
-<!-- DELETE button -->
-<tr><td>
-<form action="/books/<%= book.id%>" method="POST">
-<input type="hidden" name="_method" value="DELETE">
-<input type="submit" value="Delete">
-</form>
-</td></tr>
 
 <%end%>
-</tbody>
 
-<tfoot>
- <tr><td>
-  <h4 id = book-form >Add New Book</h4></td><td>
+<br>
+<br>
+<br>
+
+
+
   <form action="/books" method="POST">
-  <input type="text" name="name">
-  <button id="add" type="submit"><i class='icon ion-plus-round'> Add</i></button>
+  <input type="text" name="name" class="btn btn-add" placeholder="Add New Book">
   </form>
- </td></tr>
-</tfoot>
-</table>
 
 
+  <form action="/books" method="POST">
+  <input type="text" name="name" class="btn btn-add" placeholder="Add New Book">
+  
+  </form>
 
-
-<table class="sortable">
-<thead>
-  <tr><th>Person</th><th>Monthly pay</th></tr>
-</thead>
-<tbody>
-  <tr><td>Jan Molby</td><td>£12,000</td></tr>
-  <tr><td>Steve Nicol</td><td>£8,500</td></tr>
-  <tr><td>Steve McMahon</td><td>£9,200</td></tr>
-  <tr><td>John Barnes</td><td>£15,300</td></tr>
-</tbody>
-<tfoot>
-  <tr><td>TOTAL</td><td>£45,000</td></tr>
-</tfoot>
-</table>
+</div>
+ 
 
