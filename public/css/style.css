@@ -119,7 +119,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .hello-text-lg {
-   padding: 280px 0 0 ;
+   padding: 220px 0 0 ;
 }
 
 .hello-text-sm {
@@ -163,7 +163,7 @@ form#login .input-area {
 
 form#signup {
   right: 220px;
-  top: -182px;
+  top: -171px;
 }
 
 form#login {
@@ -197,8 +197,8 @@ form#signup:hover, form#login:hover {
 
 form#signup input, form#login input {
   width: 100%;
-  height: 40px;
-  font-size: 20px;
+  height: 30px;
+  font-size: 18px;
   border-radius: 3px;
   padding: 0 5px;
   margin: 0 0 20px;
