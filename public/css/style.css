@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 
 
 /*link style*/
@@ -5,7 +9,7 @@ a:link, a:visited, a:hover, a:active {
     background-color: none;
     color: #f1cf63;
     font-size: 20px;
-    border: 2px solid #f1cf63;
+    border: none;
     padding: 14px 25px;
     margin: 10px auto;
     text-align: center;
@@ -50,7 +54,7 @@ a:link, a:visited, a:hover, a:active {
   display: block;
   padding: 3px;
   font-size: 16px;
-  width: 50px;
+  width: 300px;
   transition: width 0.5s;
 }
 .btn-edit:hover {
@@ -105,6 +109,15 @@ a:link, a:visited, a:hover, a:active {
   text-align: center;
 }
 
+.bye-text-lg {
+  font-family: Permanent Marker, serif;
+  color: #f1cf63;
+  font-size: 5em;
+  line-height: 1em;
+  text-align: center;
+  padding: 0;
+}
+
 .hello-text-lg {
    padding: 280px 0 0 ;
 }
@@ -121,6 +134,14 @@ a:link, a:visited, a:hover, a:active {
   font-family: 'Lato', sans-serif;
   font-size: 1.5em;
   line-height: 1em;
+}
+
+.oop-text {
+  font-family: Permanent Marker, serif;
+  color: #f1cf63;
+  font-size: 20em;
+  border: none;
+  padding: -20px;
 }
 
 /*SIGNIN/SIGN UP*/
@@ -185,13 +206,6 @@ form#signup input, form#login input {
   border-bottom: 3px solid #ddd;
 }
 
-
-
-
-
-
-
-
 .form-group { 
   position: absolute;
   top: 50%;
@@ -236,4 +250,16 @@ form#signup-norm input[type=submit] {
   background-color: #fff;
   text-align: center;
   color: #f1cf63;
+}
+
+/*Oops Page*/
+
+.container-oops {
+padding: 150px 0;
+text-align: center;
+}
+
+.container-bye {
+padding: 140px 0;
+text-align: center;
 }

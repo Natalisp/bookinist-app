@@ -1,5 +1,13 @@
 <div class="container">
 
+    <%if logged_in? %>
+      <form class="btn btn-logout" action='/logout' method="get">
+      <input type="submit" name="name" class="btn" value="Log out">
+      </form>
+
+      <h2 class="hello-text">Hello <%= @user.name.capitalize %></h2>
+      <%end%>
+<br>
 <% if @books.all.count == 0 %>
 <h4 style="font-family:'HelveticaNeue-Light'">Aah, so empty here...</h4>
 <h4 style="font-family:'HelveticaNeue-Light'">start adding books now</h4>

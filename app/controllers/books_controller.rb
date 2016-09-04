@@ -60,11 +60,12 @@ class BooksController < ApplicationController
   end
 
   delete '/books/:id' do 
-    Book.find(params[:id]).delete
-    redirect '/books'
+    if Book.find(params[:id])
+       Book.find(params[:id]).delete
+       redirect '/books'
+     else
+      not_found
+    end
   end
-
-
-
 
 end

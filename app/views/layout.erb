@@ -11,17 +11,6 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300i" rel="stylesheet">
 </head>
 <body>
-<nav>
-    <div class="container">
-    <%if logged_in? %>
-      <form class="btn btn-logout" action='/logout' method="get">
-      <input type="submit" name="name" class="btn" value="Log out">
-      </form>
-
-      <h2 class="hello-text">Hello <%= @user.name %></h2>
-      <%end%>
-      </div>
-</nav>
 
   <%= yield %>
 
