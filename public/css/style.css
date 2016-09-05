@@ -101,6 +101,10 @@ a:link, a:visited, a:hover, a:active {
 
 /*FONTS*/
 
+.regular-text{
+  font-family: HelveticaNeue-Light, serif;
+}
+
 .hello-text, .hello-text-lg {
   font-family: Permanent Marker, serif;
   color: #f1cf63;

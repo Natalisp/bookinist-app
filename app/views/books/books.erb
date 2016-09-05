@@ -9,10 +9,10 @@
       <%end%>
 <br>
 <% if @books.all.count == 0 %>
-<h4 style="font-family:'HelveticaNeue-Light'">Aah, so empty here...</h4>
-<h4 style="font-family:'HelveticaNeue-Light'">start adding books now</h4>
+<h4 class="regular-text">Aah, so empty here...</h4>
+<h4 class="regular-text">start adding books now</h4>
 <%else%>
-<h4 style="font-family:'HelveticaNeue-Light'">Just reminding what you wanted to read.</h4>
+<h4 class="regular-text">Just reminding what you wanted to read.</h4>
 <%end%>
 <br>
 <br>
@@ -28,7 +28,7 @@
 <% @books.each.with_index(1) do |book, index| %>
 <div class="row">
   <div class="col-sm-5">
-    <h4 class="name-text" <%= "style='text-decoration: line-through;'" if book.have_read %>> <%= index %>. <%= book.name.capitalize %> </h4>
+    <h4 class="name-text" <%= "style='text-decoration: line-through;'" if book.have_read %>> <%= index %>. <%= book.name %> </h4>
   </div>
 
   <div class="col-sm-4">
