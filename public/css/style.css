@@ -159,6 +159,10 @@ form#signup .input-area,
 form#login .input-area {
   padding: 20px 20px 20px 20px;
   background: none;
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 form#signup {
@@ -188,6 +192,10 @@ form#login input[type=submit] {
   line-height: 40px;
   border-radius: 3px;
   transition: top 5s;
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 form#signup:hover, form#login:hover {
@@ -204,6 +212,10 @@ form#signup input, form#login input {
   margin: 0 0 20px;
   border: none;
   border-bottom: 3px solid #ddd;
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .form-group { 
