@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect '/signup'
     else
       user = User.create(name: params[:name], email: params[:email], password: params[:password])
-      user.save
+      # user.save
       session[:id] = user.id
       redirect '/books'
     end

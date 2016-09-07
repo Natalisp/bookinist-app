@@ -24,7 +24,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:id])
+     # if @current_user
+     # @current_user
+     # else
+     #   @current_user = User.find(session[:id])
+     # end 
+     @current_user ||= User.find(session[:id])
     end
 
     def logged_in?

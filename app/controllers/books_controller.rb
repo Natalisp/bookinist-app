@@ -1,3 +1,5 @@
+require 'pry'
+
 class BooksController < ApplicationController
 
   get '/books' do 
@@ -27,8 +29,8 @@ class BooksController < ApplicationController
   post '/books' do 
     if logged_in?
       if !params[:name].nil? && !params[:name].empty?
+        binding.pry
         @book = Book.create(name: params[:name], user_id: current_user.id, have_read: false)
-        current_user.books << @book
         current_user.save
         redirect '/books'
       else 
@@ -64,7 +66,7 @@ class BooksController < ApplicationController
        Book.find(params[:id]).delete
        redirect '/books'
      else
-      not_found
+       not_found
     end
   end
 
